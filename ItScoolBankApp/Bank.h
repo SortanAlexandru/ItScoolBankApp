@@ -13,6 +13,7 @@ public:
 	~Bank();
 	void adaugareCont();
 	void vizualizareConturi();
+	void modificareCont();
 
 };
 

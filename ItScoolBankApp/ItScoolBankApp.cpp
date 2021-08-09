@@ -12,8 +12,8 @@ int main()
     do
     {
         system("CLS");
-        std::cout << " Meniu Principal\n ";
-        std::cout << " Alegeti optiunea dorita " << std::endl;
+        std::cout << " *************Meniu Principal****************" << std::endl << std::endl;
+        std::cout << "Alegeti optiunea dorita: " << std::endl;
 
         std::cout << " 1 -> Adaugare Cont\n";
         std::cout << " 2 -> Vizualizare Conturi\n";
@@ -32,9 +32,13 @@ int main()
             system("CLS");
             itSchoolBank->vizualizareConturi();
             break;
+        case '3':
+            system("CLS");
+            itSchoolBank->modificareCont();
+            break;
         case '9':
             system("CLS");
-            std::cout << "Thank you!\n";
+            std::cout << "La revedere!\n";
             isRunning = false;
             break;
         default:
@@ -47,10 +51,7 @@ int main()
 
     
 
-    // tema:    Extindeti vizualizareConturi similar cu metoda adaugareCont 
-    // -> Vrei sa introduci alt cont nou ?
-    // -> sa se intoarca la meniul principal 
-
+   
 
 
 
