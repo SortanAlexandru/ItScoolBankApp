@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+
 enum class TIP_CONT
 {
 	CONT_RON = 1, 
@@ -29,4 +30,5 @@ public:
 
 	~ContBancar();
 };
+
 

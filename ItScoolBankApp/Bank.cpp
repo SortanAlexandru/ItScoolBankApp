@@ -1,4 +1,5 @@
 #include "Bank.h"
+#include <stdio.h>
 
 
 std::string Bank::createIBAN()
@@ -26,6 +27,29 @@ void Bank::adaugareCont()
 	std::cout << " Introduceti prenumele utilizatorului: " << std::endl;
 	std::string prenume;
 	std::cin >> prenume;
+	// Verificare daca numele/prenumele introdus contine doar caractere alfabetice si "-"
+	for (int i = 0; i <= nume.length(); i++)
+	{
+		system("CLS");
+		if ((nume[i] >= 65 && nume[i] <= 90) || (nume[i] >= 97 && nume[i] <= 122) || (nume[i] == 95))
+		{
+				if ((prenume[i] >= 65 && prenume[i] <= 90) || (prenume[i] >= 97 && prenume[i] <= 122) || (prenume[i] == 95))
+				{
+					std::cout << "S-a creat contul!" << std::endl;
+					break;
+				}
+				else
+				{
+					std::cout << " Prenumele introdus nu este corect" << std::endl;
+					break;
+				}
+			
+		}
+		else {
+			std::cout << "Numele introdus nu este corect" << std::endl;
+			break;
+		}
+	}
 	std::string IBAN = createIBAN();
 	ContBancar* cont = new ContBancar(nume, prenume, IBAN);
 	m_ConturiBancare.push_back(cont);
@@ -46,10 +70,10 @@ void Bank::adaugareCont()
 void Bank::vizualizareConturi()
 {
 	system("CLS");
-	std::cout << " Numarul de conturi in banca este: " << m_ConturiBancare.size() << std::endl;       // size = ne da dimensiunea ce se afla in contul nostru bancar  / cate elemente se afla acolo 
+	std::cout << "Numarul de conturi din banca este: " << m_ConturiBancare.size() << std::endl << std::endl;     // size = ne da dimensiunea ce se afla in contul nostru bancar  / cate elemente se afla acolo 
 	for (int i =0; i < m_ConturiBancare.size(); i++)
 	{
-		std::cout << "Contul " << i + 1 << " " << m_ConturiBancare[i]->getNume() << std::endl;
+		std::cout << "Contul " << i + 1 << ": " << m_ConturiBancare[i]->getNume() << " " << m_ConturiBancare[i]->getPrenume() << std::endl << std::endl;
 	}
 	std::cout << " 1 -> Pentru crearea unui nou cont\n";
 	std::cout << " 2 -> Pentru meniul principal\n";
@@ -123,15 +147,39 @@ void Bank::modificareCont()
 	 }
 	else
 	{
-		std::cout << " Ce modificari doriti sa realizati?\n";
-		std::cout << "1 -> Stergere cont\n";
-		// pentru a sterge contul 
-		m_ConturiBancare.erase(it);  
 		// Tema 
-		// 1 - modificati nume
-		// 2 - modificati prenume
-		// 3 - modificati .....
-		// 4 - stergeti contul gasit 
-	}
+		std::cout << "Ce modificari doriti sa realizati?\n";
+		std::cout << "1 -> Modificati numele\n";
+		std::cout << "2 -> Modificati prenumele\n";
+		std::cout << "3 -> Stergeti contul\n";
+		std::cout << "4 -> Reveniti la meniul principal\n";
+		std::string numeNou;
+		std::string schimbare;
+		char optiuneModif;
+		std::cin >> optiuneModif;
+		switch (optiuneModif)
+		{
+		case '1':
+			std::cout << "Introduceti numele vechi:\n";
+			std::cin >> nume;
+			std::cout << "Introduceti noul nume:\n";
+			std::cin >> numeNou;
+		   std::rename(nume ,numeNou)
+			break;
+		case '2':
+			break;
+		case '3':
+			// pentru a sterge contul 
+			m_ConturiBancare.erase(it);
+			break;
+		default:
+			break;
+		}
+		  
+		
+	} 
 	
 }
+
+
+
