@@ -4,8 +4,7 @@
 
 
 int main()
-{
-    // crearea unui ID si parole pt a ne putea loga pe "aplicatie"
+{// crearea unui ID si parole pt a ne putea loga pe "aplicatie"
     const std::string ID{ "admin" };
     std::string id;
     std::cout << "Introduceti ID-ul\n";
@@ -19,6 +18,7 @@ int main()
         int incercari = (2 - i);
         if (id == ID && PASS == pass)
         {
+   
             // instantam o banca 
             Bank* itSchoolBank = new Bank();
             bool isRunning = true;
@@ -72,7 +72,7 @@ int main()
 
 
 
-
+        
 
 
         }
@@ -94,3 +94,4 @@ int main()
         }
     }
 }
+        

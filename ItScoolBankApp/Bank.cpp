@@ -33,17 +33,17 @@ void Bank::adaugareCont()
 		system("CLS");
 		if ((nume[i] >= 65 && nume[i] <= 90) || (nume[i] >= 97 && nume[i] <= 122) || (nume[i] == 95))
 		{
-				if ((prenume[i] >= 65 && prenume[i] <= 90) || (prenume[i] >= 97 && prenume[i] <= 122) || (prenume[i] == 95))
-				{
-					std::cout << "S-a creat contul!" << std::endl;
-					break;
-				}
-				else
-				{
-					std::cout << " Prenumele introdus nu este corect" << std::endl;
-					break;
-				}
-			
+			if ((prenume[i] >= 65 && prenume[i] <= 90) || (prenume[i] >= 97 && prenume[i] <= 122) || (prenume[i] == 95))
+			{
+				std::cout << "S-a creat contul!" << std::endl;
+				break;
+			}
+			else
+			{
+				std::cout << " Prenumele introdus nu este corect" << std::endl;
+				break;
+			}
+
 		}
 		else {
 			std::cout << "Numele introdus nu este corect" << std::endl;
@@ -53,6 +53,7 @@ void Bank::adaugareCont()
 	std::string IBAN = createIBAN();
 	ContBancar* cont = new ContBancar(nume, prenume, IBAN);
 	m_ConturiBancare.push_back(cont);
+
 	std::cout << " 1-> Pentru crearea unui cont\n";
 	std::cout << " 2-> Pentru meniul principal\n";
 	char optiune;
@@ -66,7 +67,6 @@ void Bank::adaugareCont()
 		break;
 	}
 }
-
 void Bank::vizualizareConturi()
 {
 	system("CLS");
@@ -164,8 +164,8 @@ void Bank::modificareCont()
 			std::cin >> nume;
 			std::cout << "Introduceti noul nume:\n";
 			std::cin >> numeNou;
-		   std::rename(nume ,numeNou)
-			break;
+			std::rename(nume, numeNou)
+				break;
 		case '2':
 			break;
 		case '3':
