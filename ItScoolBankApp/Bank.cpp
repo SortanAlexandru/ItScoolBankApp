@@ -164,8 +164,6 @@ void Bank::modificareCont()
 			std::cin >> nume;
 			std::cout << "Introduceti noul nume:\n";
 			std::cin >> numeNou;
-		   std::rename(nume ,numeNou)
-			break;
 		case '2':
 			break;
 		case '3':
